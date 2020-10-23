@@ -27,7 +27,7 @@ function generatePassword () {
 
   // IF user does not follow character conditions
 
-  if ( !(passwordLength >=8 || passwordLength <= 128) ) {
+  if ( (passwordLength <8 || passwordLength > 128) ) {
   alert ("I'm sorry, this does not meet our parameters.")
   return;
   }
@@ -84,13 +84,21 @@ function generatePassword () {
   // THEN ALERT user they must meet the criteria and pick characters to use
   // AND EXIT FUNCITON (empty return)
 
+  console.log(charactersInPassword);
 
-  while (password.length < passwordLength) {
-
-  // Select "randomCharacter" from "charactersInPassword"
-  //APPEND "randomCharacter" to "password" string
+  for (var i = 0; i < passwordLength.length; i++) {
+    password = charactersInPassword [Math.floor(Math.random() * passwordLength)];
   }
 
+  // do {
+  //   charactersInPassword [Math.floor(Math.random() * passwordLength)];
+  // }
+
+  // while (password.length < passwordLength);
+    
+  // Select "randomCharacter" from "charactersInPassword"
+  //APPEND "randomCharacter" to "password" string
+  
   return password;
 
 }

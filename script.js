@@ -86,8 +86,12 @@ function generatePassword () {
 
     console.log(password);
     
-    // document.getElementById("password").value=password.join("");
+    
   }
+
+  // document.getElementById("password").value=password.join("");
+
+  password.join(" ")
 
   return password;
 
@@ -95,8 +99,6 @@ function generatePassword () {
   
 
 }
-
-
 
 
 // Write password to the #password input

@@ -3,19 +3,21 @@ var generateBtn = document.querySelector("#generate");
 
 // Array list of numbers
 
-var numbers = "0123456789";
+var numbers = "0123456789".split("");
 
 // Array list of lowercase letters
 
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 
 // Array list of uppercase letters
 
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 // Array list of special characters
 
-var specialChars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ ";
+var specialChars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ ".split("");
+
+console.log(specialChars);
 
   // DECLARE a new list of "charactersInPassword" 
 
@@ -44,7 +46,6 @@ function generatePassword () {
 
   //IF user confirms
   //PUSH "upperCase" into "charactersInPassword" list
-  //AND use spread operator to concat string variables above
 
   if (upperCaseConfirm) {
   charactersInPassword.push(...upperCase);
@@ -53,7 +54,6 @@ function generatePassword () {
   var lowerCaseConfirm = confirm("Do you want to include lower case letters?");
   //IF user confirms 
   //push "lowerCase" into "charactersInPassword" list
-  //AND use spread operator to concat string variables above
   
   if (lowerCaseConfirm) {
   charactersInPassword.push(...lowerCase);
@@ -63,7 +63,6 @@ function generatePassword () {
 
   //IF user confirms 
   //push "numbers" into "charactersInPassword" list
-  //AND use spread operator to concat string variables above
 
   if (numbersConfirm) {
   charactersInPassword.push(...numbers);
@@ -73,30 +72,23 @@ function generatePassword () {
 
   //IF user confirms
   //push "specialChars" into "charactersInPassword" list
-  //AND use spread operator to concat string variables above
 
   if (speicalCharsConfirm) {
   charactersInPassword.push(...specialChars);
   }
 
+  //
   for (var i = 0; i < passwordLength; i++) {
-    password.push(charactersInPassword[Math.floor(Math.random() * charactersInPassword.length)]);
+    password = password + charactersInPassword[Math.floor(Math.random()*charactersInPassword.length)];
 
     console.log(charactersInPassword);
 
     console.log(password);
-    
+   
     
   }
-
-  // document.getElementById("password").value=password.join("");
-
-  password.join(" ")
-
+  
   return password;
-
-  
-  
 
 }
 
@@ -113,5 +105,7 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
 
 

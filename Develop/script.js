@@ -3,22 +3,26 @@ var generateBtn = document.querySelector("#generate");
 
 // Array list of numbers
 
-var numbers = "0123456789".split("");
+var numbers = "0123456789";
 
 // Array list of lowercase letters
 
-var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 
 // Array list of uppercase letters
 
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // Array list of special characters
 
-var specialChars = "@%+!#$?.".split("");
+var specialChars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ ";
 
-var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split("");
+  // DECLARE a new list of "charactersInPassword" 
 
+  var charactersInPassword = [];
+
+  // DECLARE a new 'password' string
+  var password = [];
 
 function generatePassword () {
 
@@ -33,12 +37,6 @@ function generatePassword () {
   return;
   }
 
-  // DECLARE a new list of "charactersInPassword" 
-
-  var charactersInPassword = [];
-
-    // DECLARE a new 'password' string
-    var password = "";
 
   // CONFIRM password conditions
 
@@ -46,63 +44,58 @@ function generatePassword () {
 
   //IF user confirms
   //PUSH "upperCase" into "charactersInPassword" list
-  //AND APPEND one random upperCase from "upperCase" list
+  //AND use spread operator to concat string variables above
 
   if (upperCaseConfirm) {
-  charactersInPassword.push(upperCase);
+  charactersInPassword.push(...upperCase);
   }
   
   var lowerCaseConfirm = confirm("Do you want to include lower case letters?");
   //IF user confirms 
   //push "lowerCase" into "charactersInPassword" list
-  //AND APPEND one random lowerCase from "lowerCase" list
+  //AND use spread operator to concat string variables above
   
   if (lowerCaseConfirm) {
-  charactersInPassword.push(lowerCase);
+  charactersInPassword.push(...lowerCase);
   }
   
   var numbersConfirm = confirm("Do you want to include numbers?");
 
   //IF user confirms 
   //push "numbers" into "charactersInPassword" list
-  //AND APPEND one random number from "numbers" list
+  //AND use spread operator to concat string variables above
 
   if (numbersConfirm) {
-  charactersInPassword.push(numbers);
+  charactersInPassword.push(...numbers);
   }
 
   var speicalCharsConfirm = confirm("Do you want to include special characters?");
 
   //IF user confirms
   //push "specialChars" into "charactersInPassword" list
-  //AND APPEND one random special character from "specialChars" list
+  //AND use spread operator to concat string variables above
 
   if (speicalCharsConfirm) {
-  charactersInPassword.push(specialChars);
+  charactersInPassword.push(...specialChars);
   }
 
-  // IF NOT "charactersInPassword.length"
-  // THEN ALERT user they must meet the criteria and pick characters to use
-  // AND EXIT FUNCITON (empty return)
+  for (var i = 0; i < passwordLength; i++) {
+    password.push(charactersInPassword[Math.floor(Math.random() * charactersInPassword.length)]);
 
-  console.log(charactersInPassword);
+    console.log(charactersInPassword);
 
-  for (var i = 0; i < passwordLength.length; i++) {
-    password = charactersInPassword [Math.floor(Math.random() * passwordLength)];
-  }
-
-  // do {
-  //   charactersInPassword [Math.floor(Math.random() * passwordLength)];
-  // }
-
-  // while (password.length < passwordLength);
+    console.log(password);
     
-  // Select "randomCharacter" from "charactersInPassword"
-  //APPEND "randomCharacter" to "password" string
-  
+    // document.getElementById("password").value=password.join("");
+  }
+
   return password;
 
+  
+  
+
 }
+
 
 
 
@@ -120,6 +113,3 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-//for loop
-
-// call generate password

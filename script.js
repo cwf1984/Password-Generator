@@ -17,7 +17,6 @@ var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 var specialChars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~ ".split("");
 
-console.log(specialChars);
 
   // DECLARE a new list of "charactersInPassword" 
 
@@ -38,7 +37,6 @@ function generatePassword () {
   alert ("I'm sorry, this does not meet our parameters.")
   return;
   }
-
 
   // CONFIRM password conditions
 
